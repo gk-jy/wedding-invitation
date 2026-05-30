@@ -4,7 +4,7 @@ import { STATIC_ONLY } from "../../env"
 import { Button } from "../button"
 import { LazyDiv } from "../lazyDiv"
 import { Modal } from "../modal"
-import { AttendanceInfo } from "./attendance"
+// import { AttendanceInfo } from "./attendance"
 
 /**
  * 식사 정보 안내 컴포넌트입니다.
@@ -147,7 +147,7 @@ export const Information = () => {
     <LazyDiv className="card information">
       <Information1 />
       <Information2 />
-      <AttendanceInfo />
+      {/* <AttendanceInfo /> */}
     </LazyDiv>
   )
 }
