@@ -32,7 +32,7 @@ export const HOLIDAYS = [3, 5, 9]
 /**
  * 예식 장소 명칭
  */
-export const LOCATION = "엘블레스 다이아몬드홀"
+export const LOCATION = "양재 엘블레스"
 
 /**
  * 예식 장소 상세 주소
@@ -54,6 +54,11 @@ export const SHARE_ADDRESS_TITLE = LOCATION
  * 지도 서비스(네이버, 카카오)에 사용할 좌표 [경도, 위도]
  */
 export const WEDDING_HALL_POSITION = [127.034949554107, 37.4827666361943]
+
+/**
+ * 지도 서비스(티맵)에 사용할 주차장 좌표 [경도, 위도]
+ */
+export const PARKING_BUILDING_POSITION = [127.034117823374, 37.4836850972087]
 
 /**
  * 네이버 지도 장소 ID (NMAP_PLACE_ID)

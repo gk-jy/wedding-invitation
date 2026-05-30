@@ -74,10 +74,10 @@
       border-right: 1px solid var(--dark-grey-color);
       position: relative;
       z-index: 3;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
 
       &:last-child {
-        flex: 1;
+        flex: 1.5;
         border-right: none;
       }
 

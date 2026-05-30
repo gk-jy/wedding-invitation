@@ -9,6 +9,7 @@ import {
   KMAP_PLACE_ID,
   LOCATION,
   NMAP_PLACE_ID,
+  PARKING_BUILDING_POSITION,
   WEDDING_HALL_POSITION,
 } from "../../const"
 import { NAVER_MAP_CLIENT_ID } from "../../env"
@@ -183,14 +184,14 @@ const NaverMap = () => {
         </button>
 
         {/* 티맵 연동 */}
-        <button
+        <button 
           onClick={() => {
             switch (checkDevice()) {
               case "ios":
               case "android": {
                 const params = new URLSearchParams({
-                  goalx: WEDDING_HALL_POSITION[0].toString(),
-                  goaly: WEDDING_HALL_POSITION[1].toString(),
+                  goalx: PARKING_BUILDING_POSITION[0].toString(),
+                  goaly: PARKING_BUILDING_POSITION[1].toString(),
                   goalName: LOCATION,
                 })
                 window.open(`tmap://route?${params.toString()}`, "_self")
@@ -204,7 +205,7 @@ const NaverMap = () => {
           }}
         >
           <img src={tmapIcon} alt="t-map-icon" />
-          티맵
+          티맵(주차장)
         </button>
       </div>
     </>
