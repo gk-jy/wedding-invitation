@@ -21,3 +21,12 @@ export const SERVER_URL = import.meta.env.VITE_SERVER_URL
  * true일 경우 서버 연동 기능(방명록 등)이 비활성화됩니다.
  */
 export const STATIC_ONLY = import.meta.env.VITE_STATIC_ONLY === "true"
+
+
+/** 계좌번호 */
+export const BRIDE_ACCOUNT = import.meta.env.VITE_BRIDE_ACCOUNT
+export const BRIDE_FATHER_ACCOUNT = import.meta.env.VITE_BRIDE_FATHER_ACCOUNT
+export const BRIDE_MOTHER_ACCOUNT = import.meta.env.VITE_BRIDE_MOTHER_ACCOUNT
+export const GROOM_ACCOUNT = import.meta.env.VITE_GROOM_ACCOUNT
+export const GROOM_FATHER_ACCOUNT = import.meta.env.VITE_GROOM_FATHER_ACCOUNT
+export const GROOM_MOTHER_ACCOUNT = import.meta.env.VITE_GROOM_MOTHER_ACCOUNT
