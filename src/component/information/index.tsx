@@ -1,9 +1,20 @@
 import { useState } from "react"
 import { BRIDE_INFO, GROOM_INFO } from "../../const"
-import { STATIC_ONLY } from "../../env"
+import { STATIC_ONLY, BRIDE_ACCOUNTS, GROOM_ACCOUNTS } from "../../env"
 import { Button } from "../button"
 import { LazyDiv } from "../lazyDiv"
 import { Modal } from "../modal"
+
+type ContactInfo = (typeof BRIDE_INFO)[number] & { account?: string }
+
+const withAccounts = (
+  info: typeof BRIDE_INFO,
+  accounts: readonly (string | undefined)[],
+): ContactInfo[] =>
+  info.map((item, i) => ({ ...item, account: accounts[i] }))
+
+const BRIDE_INFO_WITH_ACCOUNTS = withAccounts(BRIDE_INFO, BRIDE_ACCOUNTS)
+const GROOM_INFO_WITH_ACCOUNTS = withAccounts(GROOM_INFO, GROOM_ACCOUNTS)
 // import { AttendanceInfo } from "./attendance"
 
 /**
@@ -80,7 +91,7 @@ export const Information2 = () => {
           </div>
         </div>
         <div className="content">
-          {(isGroom ? GROOM_INFO : BRIDE_INFO)
+          {(isGroom ? GROOM_INFO_WITH_ACCOUNTS : BRIDE_INFO_WITH_ACCOUNTS)
             .filter(({ account }) => !!account)
             .map(({ relation, name, account }) => (
               <div className="account-info" key={relation}>
