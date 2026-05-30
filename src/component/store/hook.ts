@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { StoreContext } from "./context"
 import { KAKAO_SDK_JS_KEY, NAVER_MAP_CLIENT_ID } from "../../env"
 
@@ -9,6 +9,10 @@ const baseUrl = import.meta.env.BASE_URL
 // 네이버 지도 및 카카오 SDK를 로드하기 위한 외부 스크립트 URL
 const NAVER_MAP_URL = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}`
 const KAKAO_SDK_URL = `${baseUrl}/kakao_js_sdk/2.7.1/kakao.min.js`
+const kakaoMapsScriptSelector = 'script[src*="dapi.kakao.com/v2/maps/sdk.js"]'
+
+const getKakaoMapsUrl = () =>
+  `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_SDK_JS_KEY}&autoload=false`
 
 /**
  * 네이버 지도 SDK를 로드하고 사용할 수 있게 해주는 Hook입니다.
@@ -66,4 +70,55 @@ export const useKakao = () => {
   }, [setKakao])
 
   return kakao
+}
+
+/**
+ * 카카오 지도 Javascript API를 로드합니다.
+ * 카카오톡 공유용 SDK(kakao.min.js)와는 별도 스크립트이며, 전역 객체는 window.kakao 입니다.
+ *
+ * @see https://apis.map.kakao.com/web/guide/
+ * @returns {any} 카카오 지도 API 객체 (로딩 전에는 null)
+ */
+export const useKakaoMaps = () => {
+  const [kakaoMaps, setKakaoMaps] = useState<any>(null)
+
+  useEffect(() => {
+    if (!KAKAO_SDK_JS_KEY) {
+      return
+    }
+
+    const win = window as any
+
+    const applyKakaoMaps = () => {
+      if (!win.kakao?.maps?.load) {
+        return
+      }
+      win.kakao.maps.load(() => {
+        setKakaoMaps(win.kakao)
+      })
+    }
+
+    if (win.kakao?.maps?.load) {
+      applyKakaoMaps()
+      return
+    }
+
+    const existingScript = document.querySelector(kakaoMapsScriptSelector)
+
+    if (existingScript) {
+      existingScript.addEventListener("load", applyKakaoMaps)
+      applyKakaoMaps()
+      return () => existingScript.removeEventListener("load", applyKakaoMaps)
+    }
+
+    const script = document.createElement("script")
+    script.src = getKakaoMapsUrl()
+    script.async = true
+    script.addEventListener("load", applyKakaoMaps)
+    document.head.appendChild(script)
+
+    return () => script.removeEventListener("load", applyKakaoMaps)
+  }, [])
+
+  return kakaoMaps
 }
