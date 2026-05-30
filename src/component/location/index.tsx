@@ -30,33 +30,33 @@ export const Location = () => {
           <div className="transportation-icon-wrapper">
             <BusIcon className="transportation-icon" />
           </div>
-          <div className="heading">대중교통</div>
+          <div className="heading">지하철</div>
           <div />
           <div className="content">
-            * 지하철 이용시
-            <br />
-            지하철 2호선 <b>낙성대역 4번출구</b> 나와서
-            <br />
-            → 첫번째 골목 끼고 좌회전
-            <br />→ 마을버스 <b>관악 02번</b> 승차
-            <br />→ <b>서울대후문·연구공원 정류장</b> 하차
-            <br />
-            → 길 건너 간판 참고해 도보로 100m 이동
-            <br />
-            검은색 피라미드 유리 건물입니다.
+            3호선/신분당선 <b>양재역 9번출구</b> 바로 연결
           </div>
+        </div>
+
+        <div className="location-info">
+          <div className="transportation-icon-wrapper">
+            <BusIcon className="transportation-icon" />
+          </div>
+          <div className="heading">버스</div>
           <div />
           <div className="content">
-            * 버스 이용 시
+            <b>양재역, 서초문화예술회관</b>에서 하차
             <br />
-            - 간선(파랑): 461, 641
+            - 지선
+            <div className="bus-group">0411, 4432, 4435</div>
             <br />
-            - 지선(초록): 5413, 5524, 5528
+            - 간선 / 일반
+            <div className="bus-group">140, 341, 400, 405, 421, 440, 441, 452, 470, 542, 741, 917</div>
             <br />
-            반드시 <b>낙성대입구</b> 하차
-            <br />→ 마을버스 <b>관악 02번</b> 이용
+            - 광역
+            <div className="bus-group">9404, 9408, 9409, 9711, M4403, M4434, M4448, M4449, M5438, M6450, M6458</div>
             <br />
-            이하 위와 동일합니다.
+            - 직행
+            <div className="bus-group">1005, 1101, 1151, 1550-1, 1551, 1552, 3030, 3401, 4403, 5001-1, 5001, 5002, 5003, 5006, 5100, 5401, 6001, 6002, 6002-1, 6004, 6501, 6600, 8501, 8502, 9004, 9202, G5100, 1560</div>
           </div>
         </div>
 
@@ -68,20 +68,11 @@ export const Location = () => {
           <div className="heading">자가용</div>
           <div />
           <div className="content">
-            네이버 지도, 카카오 네비, 티맵 등 이용
+            엘블레스 옆 <b>양재역 양재 주차 빌딩</b> 이용
             <br />
-            <b>서울대학교 연구공원 웨딩홀</b> 검색
+            양재역 주차장에 주차하신 후 바로 옆 건물 <br /><b>스포타임</b>으로 이동하시면 됩니다.
             <br />
-            - 주차 요금은 무료입니다.
-            <br />
-            (주차장 이용 시 웨딩홀과 바로 연결)
-          </div>
-          <div />
-          <div className="content">
-            <b>
-              ※ 서울대학교 정, 후문을 통과할 경우 통행료가 발생하므로
-              유의바랍니다. 낙성대 방향으로 이용해주세요.
-            </b>
+            (지하 1층에 엘블레스가 위치하고 있습니다.)
           </div>
         </div>
       </LazyDiv>

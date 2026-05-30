@@ -94,8 +94,8 @@
     display: grid;
     grid-template-columns: 2rem 1fr;
     text-align: left;
-    row-gap: 0.7rem;
-    margin: 1rem 0;
+    row-gap: 0.5rem;
+    margin: 0.5rem 0;
 
     > * {
       align-self: center;
@@ -112,6 +112,11 @@
       }
     }
 
+    .bus-group {
+      padding-left: 1.3rem;
+      margin-bottom: 0;
+    }
+
     .heading {
       font-size: 1rem;
       opacity: 0.7;
@@ -119,7 +124,7 @@
     }
 
     .content {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       line-height: 1.4;
     }
   }
