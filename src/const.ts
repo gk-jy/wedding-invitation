@@ -40,6 +40,17 @@ export const LOCATION = "양재 엘블레스"
 export const LOCATION_ADDRESS = "서울특별시 서초구 강남대로 213 B1"
 
 /**
+ * 카카오톡 공유 시 사용할 위치 정보 주소
+ * 필요에 따라 LOCATION과 다르게 설정할 수 있습니다.
+ */
+export const SHARE_ADDRESS = LOCATION
+
+/**
+ * 카카오톡 공유 시 표시될 위치 제목
+ */
+export const SHARE_ADDRESS_TITLE = LOCATION
+
+/**
  * 지도 서비스(네이버, 카카오)에 사용할 좌표 [경도, 위도]
  */
 export const WEDDING_HALL_POSITION = [127.034949554107, 37.4827666361943]
